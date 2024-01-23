@@ -457,6 +457,8 @@ async function transferIssues() {
 
   // if a GitLab issue does not exist in GitHub repo, create it -- along with comments.
   for (let issue of issues) {
+    // Add 10 sec delay.
+    await new Promise(r => setTimeout(r, 10000));
     // try to find a GitHub issue that already exists for this GitLab issue
     let githubIssue = githubIssues.find(
       i => i.title.trim() === issue.title.trim()
@@ -555,6 +557,8 @@ async function transferMergeRequests() {
   // if a GitLab merge request does not exist in GitHub repo, create it -- along
   // with comments
   for (let mr of mergeRequests) {
+    // Add 10 sec delay.
+    await new Promise(r => setTimeout(r, 10000));
     // Try to find a GitHub pull request that already exists for this GitLab
     // merge request
     let githubRequest = githubPullRequests.find(

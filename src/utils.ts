@@ -80,6 +80,8 @@ export const migrateAttachments = async (
     }
     // Using Github attachmentRepo
     else if (settings.githubAttachmentSettings?.repo){
+      // Add 10 sec delay.
+      await new Promise(r => setTimeout(r, 10000));
       const basename = path.basename(url);
       const mimeType = mime.lookup(basename);
       const attachmentBuffer = await gitlabHelper.getAttachment(url);
